@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_kingkey_qn_domain_SystemUser" modelAttribute="systemUser" path="/systemusers" z="SWZWvB5k4Ta7k9j+8b5zqPp2kz8=">
+        <field:input field="name" id="c_com_kingkey_qn_domain_SystemUser_name" required="true" z="JAr/pfkSN8m2eqUb88HhKkwlA+8="/>
+        
+        <field:input field="telNo" id="c_com_kingkey_qn_domain_SystemUser_telNo" z="SeZaApfTMyBgrYTun97J9wt4RPo="/>
+        <field:select field="permission" id="c_com_kingkey_qn_domain_SystemUser_permission" itemValue="value" items="${permissions}" path="permissions" required="true" z="user-managed"/>
+        <field:select field="department" id="c_com_kingkey_qn_domain_SystemUser_department" itemValue="id" items="${departments}" path="/departments" z="oSTqcLKtVc4L0YX8kTSE0/HgIF4="/>
+    
+	    <field:select field="company" id="c_com_kingkey_qn_domain_SystemUser_company" itemValue="id" items="${companys}" path="/companys" render="false" z="user-managed"/>
+	    
+	    <field:input field="email" id="c_com_kingkey_qn_domain_SystemUser_email" validationMessageCode="field_invalid_email" z="dzDmYjvqszNKEHPfHQCdx8Ltoao="/>
+	    <field:input field="login" id="c_com_kingkey_qn_domain_SystemUser_login" required="true" z="JHAnEoH4RqETSIIKR3GFKbef0V4="/>
+        <field:input field="password" id="c_com_kingkey_qn_domain_SystemUser_password" required="true" z="eKQ8IsQ8mbS2TldwOaIiULooIGg="/>
+        
+    </form:update>
+</div>

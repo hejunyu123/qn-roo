@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_kingkey_qn_domain_Department" items="${departments}" z="+mdUkxdq9/reKBtmduKv1mvIK74=">
+        <table:table data="${departments}" id="l_com_kingkey_qn_domain_Department" path="/departments" z="7JRzU6hG6QhBRb1EFOALJGC5xpA=">
+            <table:column id="c_com_kingkey_qn_domain_Department_name" property="name" z="3HjAFdX7dC7jIoZardzMlhBMsbw="/>
+            <table:column id="c_com_kingkey_qn_domain_Department_company" property="company" z="fEfoQprhYTaKtzSRMlxLJVjrd60="/>
+            <table:column id="c_com_kingkey_qn_domain_Department_users" property="users" render="false" z="user-managed"/>
+        </table:table>
+    </page:list>
+</div>

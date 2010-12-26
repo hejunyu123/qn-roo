@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_kingkey_qn_domain_AnswerSheet" items="${answersheets}" z="SP0QbhNNt49ko2fynNuYqEZC8Ts=">
+        <table:table data="${answersheets}" id="l_com_kingkey_qn_domain_AnswerSheet" path="/answersheets" update="false" z="user-managed">
+            <table:column id="c_com_kingkey_qn_domain_AnswerSheet_questionnaire" property="questionnaire" z="EimKSzd/L7vgdEyKGR//2PagLFU="/>
+            <table:column id="c_com_kingkey_qn_domain_AnswerSheet_answeredUser" property="answeredUser" z="06k/IsCa7KQZ5M3UxiRNCSijJm4="/>
+            <table:column id="c_com_kingkey_qn_domain_AnswerSheet_answeredDate" property="answeredDate" z="zeHLPBUrUmZbBF3Gi0XAT6Y2NF8="/>
+            <table:column id="c_com_kingkey_qn_domain_AnswerSheet_answers" property="answers" render="false" z="user-managed"/>
+        <table:column id="c_com_kingkey_qn_domain_AnswerSheet_department" property="department" z="QsSuzgnJKIj5rzlCX9dKI9t1YIU="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="answersheets/list">
+        <put-attribute name="body" value="/WEB-INF/views/answersheets/list.jspx"/>
+    </definition>
+	<definition extends="default" name="answersheets/show">
+        <put-attribute name="body" value="/WEB-INF/views/answersheets/show.jspx"/>
+    </definition>
+	<definition extends="default" name="answersheets/create">
+        <put-attribute name="body" value="/WEB-INF/views/answersheets/create.jspx"/>
+    </definition>
+    
+	<definition extends="default" name="answersheets/update">
+		<put-attribute name="body" value="/WEB-INF/views/answers/update.jspx"/>
+    </definition>
+	<definition extends="default" name="answersheets/findAnswerSheetsByQuestionnaireAndAnsweredUser">
+        <put-attribute name="body" value="/WEB-INF/views/answersheets/findAnswerSheetsByQuestionnaireAndAnsweredUser.jspx"/>
+    </definition>
+    
+	<definition extends="default" name="answersheets/stat">
+        <put-attribute name="body" value="/WEB-INF/views/answersheets/stat.jspx"/>
+    </definition>
+    
+</tiles-definitions>

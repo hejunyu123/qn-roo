@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_kingkey_qn_domain_Part" object="${part}" path="/parts" z="5Sqir857yiwzavYd+hJrVhDTXgg=">
+        <field:display field="label" id="s_com_kingkey_qn_domain_Part_label" object="${part}" z="BYB4W1+HMlf7WGjtVyBHxx//cRg="/>
+    <field:display field="orderNo" id="s_com_kingkey_qn_domain_Part_orderNo" object="${part}" z="e1s3lORY0U6sBvPgAtnaooNq53U="/>
+    <field:display field="questionnaire" id="s_com_kingkey_qn_domain_Part_questionnaire" object="${part}" z="8DwEgKSZTXaSu2TLyK3bc91Xnv4="/>
+    <field:display field="questions" id="s_com_kingkey_qn_domain_Part_questions" object="${part}" z="MVZdqYGC4Xe4llJkuXod0wAqyA4="/>
+    </page:show>
+</div>

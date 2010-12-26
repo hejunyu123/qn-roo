@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_kingkey_qn_domain_AnswerSheet" modelAttribute="answerSheet" path="/answersheets" render="${empty dependencies}" z="k9Rjnuk6ZJA+EA3OCBesNiapp/A=">
+        <field:select field="questionnaire" id="c_com_kingkey_qn_domain_AnswerSheet_questionnaire" itemValue="id" items="${questionnaires}" path="/questionnaires" z="zpyF6TKSm8P7lrPccvFSEJIV7NU="/>
+        <field:select field="answeredUser" id="c_com_kingkey_qn_domain_AnswerSheet_answeredUser" itemValue="id" items="${systemusers}" path="/systemusers" z="PMYGGMr3JGy7bF+m7aeE9SOchVI="/>
+        <field:datetime dateTimePattern="${answerSheet_answereddate_date_format}" field="answeredDate" id="c_com_kingkey_qn_domain_AnswerSheet_answeredDate" z="hAxGNwZwuWtMND1oMmbuSdexdt4="/>
+        <field:simple field="answers" id="c_com_kingkey_qn_domain_AnswerSheet_answers" messageCode="entity_reference_not_managed" messageCodeAttribute="Answer" z="fHzCJTgR5hnU2rm/plUpTfz9OxI="/>
+    <field:select field="department" id="c_com_kingkey_qn_domain_AnswerSheet_department" itemValue="id" items="${departments}" path="/departments" z="bAq5XrR7x7iKpn1zJ8+Pl3l1G8M="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_kingkey_qn_domain_AnswerSheet" render="${not empty dependencies}" z="/MQYXyuOxGtZuMRROQw+thljDKs="/>
+</div>

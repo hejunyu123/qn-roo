@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_kingkey_qn_domain_SystemUser" items="${systemusers}" z="WKBX6BuEhvtvlbBEeOEMDkilNNY=">
+        <table:table data="${systemusers}" id="l_com_kingkey_qn_domain_SystemUser" path="/systemusers" z="nLfAGzc4k/GuaHlawfVvD0l1rjg=">
+            <table:column id="c_com_kingkey_qn_domain_SystemUser_name" property="name" z="NdcRZ8caTGfqdag8n7FcZyJUKoI="/>
+            <table:column id="c_com_kingkey_qn_domain_SystemUser_telNo" property="telNo" z="/2+PZsGeVyPtXw1XJqTDhDNthU0="/>
+	        <table:column id="c_com_kingkey_qn_domain_SystemUser_email" property="email" z="/zD9j9kZblNQ1I+5DsWhz4A7fNU="/>
+	        <table:column id="c_com_kingkey_qn_domain_SystemUser_login" property="login" z="o0TIe6lsgrFpjiutDlcxopjT8Ec="/>
+            <table:column id="c_com_kingkey_qn_domain_SystemUser_password" property="password" render="false" z="user-managed"/>
+            <table:column id="c_com_kingkey_qn_domain_SystemUser_sendMailAfterCreated" property="sendMailAfterCreated" render="false" z="user-managed"/>
+        	<table:column i18n="true" id="c_com_kingkey_qn_domain_SystemUser_permission" keyPrefix="com_kingkey_qn_domain_systemuser_permission_" property="permission" z="user-managed"/>
+        </table:table>
+    </page:list>
+</div>

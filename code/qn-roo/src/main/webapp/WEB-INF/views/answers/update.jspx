@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div style="clear:both;" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    
+    <script type="text/javascript">
+        function setMyValue(myId){
+
+    		var thisForm = dojo.byId("answerSheet");
+    		
+    		var checked = false;
+    		var node = eval( "thisForm."+myId );
+      		for (i=node.length-1; i > -1; i--) {
+      			if (node[i].checked) {
+      				checked = true; i = -1;
+      			}
+      		}
+    		
+    		var item = dojo.byId("_"+myId);
+    		item.value = checked?"checked":"";
+        }
+    </script>
+    
+    <form:update id="fc_com_kingkey_qn_domain_AnswerSheet" modelAttribute="answerSheet" path="/${namespace}" z="9ksONl/Z74UPN04W3KEjYEFUGu4=">
+    
+		<input name="questionnaire" type="hidden" value="${questionnaire.id}" />
+		<input name="answeredUser" type="hidden" value="${answerSheet.answeredUser.id}" />
+		<input name="department" type="hidden" value="${answerSheet.department.id}" />
+
+
+	  <c:forEach items="${questionnaire.parts}" var="part">
+  		<c:if test="${questionnaire.displayPartLabel}">
+  			<b><c:out value="${part.label}" /></b><br/>
+  		</c:if>
+  		
+		<c:forEach items="${part.questions}" var="question">
+		
+  		  <table>
+			<tr>
+				<th width="30px"><b><c:out value="${question.orderNo}" />.</b></th>
+				<th >
+					<b><c:out value="${question.question}" /> <c:if test="${question.required}"><span style="color: red;"> *</span></c:if></b>
+					
+					<c:choose>
+						<c:when test="${question.questionType == 'Completion'}">
+						  <input type="hidden" id="_q${question.id}" name="_q${question.id}" value="${question.defaultCompletContent}"/>
+						</c:when>
+						<c:otherwise>
+						  <input type="hidden" id="_q${question.id}" name="_q${question.id}" value="checked"/>
+						</c:otherwise>
+					</c:choose>
+					
+					<c:if test="${question.required}">
+						<script type="text/javascript">
+							Spring.addDecoration(new Spring.ElementDecoration({
+								elementId : '_q${question.id}', 
+								widgetType : 'dijit.form.ValidationTextBox', 
+								widgetAttrs : {
+									promptMessage: '输入${question.question}(必需的)', 
+									invalidMessage: '请输入有效的 ${question.question}', 
+									required: true
+								}
+							})); 
+						</script>
+					</c:if>
+				</th>
+			</tr>
+			<tr>
+				<td></td>
+				<c:choose>
+				  <c:when test="${question.questionType == 'SingleSelection' or question.questionType == 'SingleSelectionCompletion'}">
+					<td>
+						<c:if test="${not empty question.firstLabel}">
+							<div style="float: left; width: auto;">
+								<div style="float: left; width: auto;"><c:out value="${question.firstLabel}" /></div>
+								<div style="float: left; width: 20px;"></div>
+							</div>
+						</c:if>
+					
+						<c:forEach items="${question.questionOptions}" var="questionOption">
+							<div style="float: left; width: auto;">
+								<div style="float: left; width: auto;"> 
+									<c:choose>
+										<c:when test="${questionOption.checked}">
+										  <input type="radio" onclick="setMyValue('q${question.id}'); " checked="checked" value="${questionOption.id}" id="q${question.id}_${questionOption.id}" name="q${question.id}" />
+										</c:when>
+										<c:otherwise>
+										  <input type="radio" onclick="setMyValue('q${question.id}'); " value="${questionOption.id}" id="q${question.id}_${questionOption.id}" name="q${question.id}" />
+										</c:otherwise>
+									</c:choose>
+								</div>
+								<div style="float: left; width: auto;"><label class="question" style="float:left; width: auto;" for="q${question.id}_${questionOption.id}"><c:out value="${questionOption.content}" /></label></div>
+								<c:if test="${questionOption.needCompletion}">
+									<div style="float: left; width: auto;"><input type="text" value="${question.completContent}" id="qc${questionOption.id}" name="qc${questionOption.id}" /></div>
+								</c:if>
+								<div style="float: left; width: 20px;"></div>
+							</div>
+						</c:forEach>		
+						
+						<c:if test="${not empty question.lastLabel}">
+					  		<div style="float: left; width: auto;"><c:out value="${question.lastLabel}" /></div>
+					  </c:if>	
+					</td>
+				  </c:when>
+				  <c:when test="${question.questionType == 'MultipleChoice' or question.questionType == 'MultipleChoiceCompletion'}">
+					<td>
+						<c:if test="${not empty question.firstLabel}">
+							<div style="float: left; width: auto;">
+								<div style="float: left; width: auto;"><c:out value="${question.firstLabel}" /></div>
+								<div style="float: left; width: 20px;"></div>
+							</div>
+						</c:if>
+					
+						<c:forEach items="${question.questionOptions}" var="questionOption">
+							<div style="float: left; width: auto;">
+								<div style="float: left; width: auto;">
+									<c:choose>
+										<c:when test="${questionOption.checked}">
+										  <input type="checkbox" onclick="setMyValue('q${question.id}'); " checked="checked" value="${questionOption.id}" id="q${question.id}_${questionOption.id}" name="q${question.id}" />
+										</c:when>
+										<c:otherwise>
+										  <input type="checkbox" onclick="setMyValue('q${question.id}'); " value="${questionOption.id}" id="q${question.id}_${questionOption.id}" name="q${question.id}" />
+										</c:otherwise>
+									</c:choose>
+								</div>
+								<div style="float: left; width: auto;"><label class="question" style="float:left; width: auto;" for="q${question.id}_${questionOption.id}"><c:out value="${questionOption.content}" /></label></div>
+								<c:if test="${questionOption.needCompletion}">
+									<div style="float: left; width: auto;"><input type="text" value="${question.completContent}" id="qc${questionOption.id}" name="qc${questionOption.id}" /></div>
+								</c:if>
+								<div style="float: left; width: 20px;"></div>
+							</div>
+						</c:forEach>		
+						
+						<c:if test="${not empty question.lastLabel}">
+					  		<div style="float: left; width: auto;"><c:out value="${question.lastLabel}" /></div>
+					  </c:if>	
+					</td>
+				  </c:when>
+				  <c:when test="${question.questionType == 'Completion'}">
+					<td>
+						<c:if test="${not empty question.firstLabel}">
+							<div style="float: left; width: auto;">
+								<div style="float: left; width: auto;"><c:out value="${question.firstLabel}" /></div>
+								<div style="float: left; width: 20px;"></div>
+							</div>
+						</c:if>
+					
+						<div style="float: left; width: auto;">
+							<!-- 
+							<input onchange="dojo.byId('_q${question.id}').value=this.value" type="text" value="${question.completContent}" id="q${question.id}" name="q${question.id}" />
+							 -->
+							<textarea  onchange="dojo.byId('_q${question.id}').value=this.innerHTML" rows="4" cols="60" name="q${question.id}" id="q${question.id}">${question.completContent}</textarea>
+						</div>
+						
+						<c:if test="${not empty question.lastLabel}">
+					  		<div style="float: left; width: auto;"><c:out value="${question.lastLabel}" /></div>
+					  </c:if>	
+					</td>
+				  </c:when>
+				</c:choose>
+			</tr>
+			<c:if test="${not empty question.comment}">
+			  <tr>
+				<td></td>
+				<td>
+					<div style="float: left; width: auto;" class="comment">
+						<c:out value="${question.comment}" />
+					</div>
+				</td>
+			  </tr>
+			</c:if>
+	  	  </table>
+			
+		</c:forEach>
+		
+	  </c:forEach>
+
+    </form:update>
+    
+</div>

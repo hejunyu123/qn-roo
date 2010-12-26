@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_kingkey_qn_domain_Questionnaire" object="${questionnaire}" path="/questionnaires" z="u7ufEwsMsgBGrbq6cPQmKoPyFXg=">
+        <field:display field="subject" id="s_com_kingkey_qn_domain_Questionnaire_subject" object="${questionnaire}" z="wgRho6PZc+Gbtbr0HnHZkUMTO/I="/>
+	    <field:display field="description" id="s_com_kingkey_qn_domain_Questionnaire_description" object="${questionnaire}" z="fP9UI2UkCM8jw2U8mVy3MUEP1YQ="/>
+	    <field:display field="displayPartLabel" id="s_com_kingkey_qn_domain_Questionnaire_displayPartLabel" object="${questionnaire}" z="olNbqLJkFCLOCZiTSXIe71ZLNZ8="/>
+	    <field:display field="parts" id="s_com_kingkey_qn_domain_Questionnaire_parts" object="${questionnaire}" z="I7/o+m7tykNS1HGmM7CbckojqXo="/>
+	    <field:display field="department" id="s_com_kingkey_qn_domain_Questionnaire_department" object="${questionnaire}" z="8Ikelz84FwB5ArGR/hZwo1cpHdk="/>
+	    
+	    <field:display field="createdBy" id="s_com_kingkey_qn_domain_Questionnaire_createdBy" object="${questionnaire}" z="HLbf5LB4HysutKmildnkYrm81ug="/>
+	    <field:display date="true" dateTimePattern="${questionnaire_createddate_date_format}" field="createdDate" id="s_com_kingkey_qn_domain_Questionnaire_createdDate" object="${questionnaire}" z="ceyGueRO2E9etK4mMR0nQYHmryI="/>
+	    <field:display field="questionnaireType" id="s_com_kingkey_qn_domain_Questionnaire_questionnaireType" object="${questionnaire}" z="61s+d6V0dYp/ZlU58w9vnJLdrqY="/>
+    </page:show>
+</div>

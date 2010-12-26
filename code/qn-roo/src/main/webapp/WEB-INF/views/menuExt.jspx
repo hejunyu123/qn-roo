@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:sec="http://www.springframework.org/security/tags" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" xmlns:spring="http://www.springframework.org/tags" id="menu" version="2.0">
+<jsp:output omit-xml-declaration="yes" /> 
+
+<menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+
+  <!-- Roles: Administrator, Creator, RealNameAnswer, AnonymousAnswer -->
+  <sec:authorize ifAllGranted="Administrator">
+	<menu:category id="c_company" z="tmJjNcrRZwdZqruFqwG+TB5GMek=">
+		<menu:item id="i_company_new" messageCode="global_menu_new" url="/companys?form" z="SWjXbZ96+4L3yJZ+Q7yyqEFQPV4=" />
+		<menu:item id="i_company_list" messageCode="global_menu_list" url="/companys?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="KBi2UXUGEQekBum4LE1bmmG+7j4=" />
+	</menu:category>
+	<menu:category id="c_department" z="vCG3GO3NPbP16KglEq3WAvshmYw=">
+		<menu:item id="i_department_new" messageCode="global_menu_new" url="/departments?form" z="x4bXRWzpRon0gxaGDx0C9NMFiTo=" />
+		<menu:item id="i_department_list" messageCode="global_menu_list" url="/departments?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="MY5yH7Yf9QTR/Y5worCxJIrnQfo=" />
+	</menu:category>
+	<menu:category id="c_systemuser" z="VUyOQ1qm2564dCbm9lJylDiISxw=">
+		<menu:item id="i_systemuser_new" messageCode="global_menu_new" url="/systemusers?form" z="goei29ZpWJ1W7luGL4W4aXNyZBQ=" />
+		<menu:item id="i_systemuser_list" messageCode="global_menu_list" url="/systemusers?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="tPjo9hFj5soyClwUsdjZjYn2R+s=" />
+	</menu:category>
+  </sec:authorize>
+  
+  <sec:authorize ifAnyGranted="Administrator,Creator">
+	<menu:category id="c_questionnaire" z="bgwQ1X4qWqJRewAPxaVNP2cK1yY=">
+		<menu:item id="i_questionnaire_new" messageCode="global_menu_new" url="/questionnaires?form" z="jHE8g/eDgrr0p6I6MnIRpcBZ3rE=" />
+		<menu:item id="i_questionnaire_list" messageCode="global_menu_list" url="/questionnaires?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="3O9Ev5mBwBfRxwmYcfivl6VJLGA=" />
+	</menu:category>
+  </sec:authorize>
+  
+  <sec:authorize ifAllGranted="Administrator">
+    <menu:category id="c_answersheet" z="8kBw/6uW8iNcC+zhmZghD14K2xo=">
+        <menu:item id="i_answersheet_list" messageCode="global_menu_list" url="/answersheets?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="zK4VHi7BWJbeSD32IYFRoMGcgqM="/>
+        <menu:item id="fi_answersheet_questionnaireandanswereduser" messageCode="global_menu_find" url="/answersheets?find=ByQuestionnaireAndAnsweredUser&amp;form" z="eqzgvdhXK2lo4Ig+dRjMCaXqCgA="/>
+        <spring:message code="menu_item_answersheet_stat" var="label" htmlEscape="false"/>
+        <menu:item id="i_answersheet_stat" label="${label}" url="/answersheets?statForm" />
+    </menu:category>
+  </sec:authorize>
+	
+	<menu:category id="c_answer" >
+		<menu:item id="i_questionnaire_list" messageCode="global_menu_list" url="/answers?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="3O9Ev5mBwBfRxwmYcfivl6VJLGA=" />
+	</menu:category>
+	
+</menu:menu>
+
+</div>

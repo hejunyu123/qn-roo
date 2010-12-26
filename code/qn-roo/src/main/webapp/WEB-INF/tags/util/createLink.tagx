@@ -1,0 +1,33 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:spring="http://www.springframework.org/tags" xmlns:c="http://java.sun.com/jsp/jstl/core" version="2.0">
+  <jsp:output omit-xml-declaration="yes" />
+  <jsp:directive.attribute name="path" type="java.lang.String" required="true" description="The path for this tag (required)" />
+  <jsp:directive.attribute name="entityLabelKey" type="java.lang.String" required="true" description="The entity name (required)" />
+  <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')" />
+  
+  <jsp:directive.attribute name="paramName1" type="java.lang.String" required="false" description="parameter name 1" />
+  <jsp:directive.attribute name="paramValue1" type="java.lang.String" required="false" description="parameter value 1" />
+  <jsp:directive.attribute name="paramName2" type="java.lang.String" required="false" description="parameter name 2" />
+  <jsp:directive.attribute name="paramValue2" type="java.lang.String" required="false" description="parameter value 2" />
+
+  <c:if test="${empty render or render}">
+    <div id="_create_${entityLabelKey}_id">
+	     <spring:url value="${path}" var="create_form_url">
+	       <spring:param name="form"/>
+	        <c:if test="${not empty paramName1}">
+	        	<spring:param name="${paramName1}" value="${paramValue1}"/>
+	        </c:if>
+	        <c:if test="${not empty paramName2}">
+	        	<spring:param name="${paramName2}" value="${paramValue2}"/>
+	        </c:if>
+	     </spring:url>
+	     <spring:url value="/resources/images/create.png" var="create_image_url"/>
+	     <spring:message code="${entityLabelKey}" var="entityLabel"/>
+	     <spring:message arguments="${entityLabel}" code="entity_create" var="create_label"/>
+	     <c:out value="${fn:escapeXml(create_label)}"/>
+	     <a alt="${fn:escapeXml(create_label)}" href="${fn:escapeXml(create_form_url)}" title="${fn:escapeXml(create_label)}">
+	       <img alt="${fn:escapeXml(create_label)}" class="image" src="${fn:escapeXml(create_image_url)}" title="${fn:escapeXml(create_label)}"/>
+	     </a>
+    </div> 
+  </c:if>
+  
+</jsp:root>
