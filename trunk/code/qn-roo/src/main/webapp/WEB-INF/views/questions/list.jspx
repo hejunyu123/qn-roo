@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_kingkey_qn_domain_Question" items="${questions}" z="fv/Bgo4BL2CUldjfNqFralAD1p8=">
+        <table:table data="${questions}" id="l_com_kingkey_qn_domain_Question" path="/questions" z="bX7eJUj13KWl9VkCbfRMLv8CeY4=">
+            <table:column id="c_com_kingkey_qn_domain_Question_question" property="question" z="ZtZZ8dAC3FE0gdkPFFMFPBLSVbQ="/>
+        <table:column id="c_com_kingkey_qn_domain_Question_questionType" property="questionType" z="beh4gdMhW2P4IAceTEXEVseULsE="/>
+        <table:column id="c_com_kingkey_qn_domain_Question_part" property="part" z="NwxCwf0jL0NhwgrKZwc2PuYPI7c="/>
+        
+        <table:column id="c_com_kingkey_qn_domain_Question_firstLabel" property="firstLabel" z="xgcvTlInnJJ1BLpzWAo34rPN53Y="/>
+            <table:column id="c_com_kingkey_qn_domain_Question_lastLabel" property="lastLabel" z="U7TAqqnqCwNDCz5FOHU+LaItnMs="/>
+            <table:column id="c_com_kingkey_qn_domain_Question_orderNo" property="orderNo" z="RByKdD5zm2DG0uY0vuFWpRBPxaA="/>
+        </table:table>
+    </page:list>
+</div>

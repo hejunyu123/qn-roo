@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_kingkey_qn_domain_SystemUser" object="${systemuser}" path="/systemusers" z="V3xpF29KsZXikcFdLapg1iSQuDc=">
+        <field:display field="name" id="s_com_kingkey_qn_domain_SystemUser_name" object="${systemuser}" z="8K8M/lnsLCz4wklxaOAnDEmFvwA="/>
+        
+        <field:display field="telNo" id="s_com_kingkey_qn_domain_SystemUser_telNo" object="${systemuser}" z="idR8PiZVYP4Svsm4xjWzCpB9l1s="/>
+        <field:display field="permission" id="s_com_kingkey_qn_domain_SystemUser_permission" object="${systemuser}" render="false" z="user-managed"/>
+        <field:displayExt field="permission" i18n="true" id="s_com_kingkey_qn_domain_SystemUser_permission" object="${systemuser}" z="V2BUNSnUALkrWQmW2WOR/VzWGpg="/>
+        <field:display field="department" id="s_com_kingkey_qn_domain_SystemUser_department" object="${systemuser}" z="0fyn50sqlrNcV77qAoqOzK5+0Rc="/>
+    
+	    <field:display field="company" id="s_com_kingkey_qn_domain_SystemUser_company" object="${systemuser}" render="false" z="user-managed"/>
+	    
+	    <field:display field="email" id="s_com_kingkey_qn_domain_SystemUser_email" object="${systemuser}" z="VGdnu7NXlQeRf8NmZ56UnX0Ilxs="/>
+	    <field:display field="login" id="s_com_kingkey_qn_domain_SystemUser_login" object="${systemuser}" z="19+YQhbdHMm9/mUUCpzEf72UGUA="/>
+        <field:display field="password" id="s_com_kingkey_qn_domain_SystemUser_password" object="${systemuser}" z="uSV9c18a71RLv9EJvIghJa7gIcQ="/>
+        
+    </page:show>
+</div>

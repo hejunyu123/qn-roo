@@ -1,0 +1,17 @@
+<aspectj>
+<aspects>
+<aspect name="com.kingkey.qn.domain.QuestionOptionDataOnDemand_Roo_Configurable"/>
+<aspect name="com.kingkey.qn.domain.PartDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.kingkey.qn.domain.PartIntegrationTest_Roo_Configurable"/>
+<aspect name="com.kingkey.qn.domain.PartDataOnDemand_Roo_Configurable"/>
+<aspect name="com.kingkey.qn.domain.QuestionOptionIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.kingkey.qn.domain.QuestionOptionIntegrationTest_Roo_Configurable"/>
+<aspect name="com.kingkey.qn.domain.QuestionIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.kingkey.qn.domain.QuestionDataOnDemand_Roo_Configurable"/>
+<aspect name="com.kingkey.qn.domain.QuestionIntegrationTest_Roo_Configurable"/>
+<aspect name="com.kingkey.qn.domain.QuestionOptionDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.kingkey.qn.domain.QuestionDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.kingkey.qn.domain.PartIntegrationTest_Roo_IntegrationTest"/>
+</aspects>
+</aspectj>
+

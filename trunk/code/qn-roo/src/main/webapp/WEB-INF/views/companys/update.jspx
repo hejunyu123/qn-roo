@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_kingkey_qn_domain_Company" modelAttribute="company" path="/companys" z="5E7swUcrbCqOTO16z0VZ1oJunHc=">
+        <field:input field="name" id="c_com_kingkey_qn_domain_Company_name" required="true" z="lBNMWabiLzWdTaiiCXItY9gQ+OI="/>
+        <field:simple field="departments" id="c_com_kingkey_qn_domain_Company_departments" messageCode="entity_reference_not_managed" messageCodeAttribute="Department" render="false" z="user-managed"/>
+    </form:update>
+</div>

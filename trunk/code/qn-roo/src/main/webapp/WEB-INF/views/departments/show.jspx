@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_kingkey_qn_domain_Department" object="${department}" path="/departments" z="AHDSzNKGlsrIT7lc2j7Ys2d4Kzc=">
+        <field:display field="name" id="s_com_kingkey_qn_domain_Department_name" object="${department}" z="xzG3d7Iqeve8BxfNOk/rEKb6ACs="/>
+        <field:display field="company" id="s_com_kingkey_qn_domain_Department_company" object="${department}" z="os/g/7MS8bWUJRYSt2gfxAyArcY="/>
+        <field:display field="users" id="s_com_kingkey_qn_domain_Department_users" object="${department}" z="fsePgKXw26l6p/LHpRRESKEFOeE="/>
+    </page:show>
+</div>

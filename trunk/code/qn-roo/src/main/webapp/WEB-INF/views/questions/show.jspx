@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_kingkey_qn_domain_Question" object="${question}" path="/questions" z="OmLr3ADHRzV8F4w5mQiP4wkh4GY=">
+        <field:display field="question" id="s_com_kingkey_qn_domain_Question_question" object="${question}" z="spSMnrUetj5Ry8H1BQsVOeR1TR4="/>
+	    <field:display field="questionType" id="s_com_kingkey_qn_domain_Question_questionType" object="${question}" z="PlAOo27rK77J6S2HApo70LdEia0="/>
+	    <field:display field="part" id="s_com_kingkey_qn_domain_Question_part" object="${question}" z="rPWs82lKjH0P1VsDo8YY7dlLFx4="/>
+	    <field:display field="questionOptions" id="s_com_kingkey_qn_domain_Question_questionOptions" object="${question}" z="XYMMCMSpcMTy0Z4cZR/TaaWWbjg="/>
+	    <field:display field="firstLabel" id="s_com_kingkey_qn_domain_Question_firstLabel" object="${question}" z="yU5AXJ6FXfGXoQ/V/TBK7GU2X2k="/>
+        <field:display field="lastLabel" id="s_com_kingkey_qn_domain_Question_lastLabel" object="${question}" z="CKLIYObk57YIxjakvr10jkxgtQc="/>
+        <field:display field="orderNo" id="s_com_kingkey_qn_domain_Question_orderNo" object="${question}" z="M7QzT0YPc0Uuu4nI6BQL3lwVkEw="/>
+	    <field:display field="required" id="s_com_kingkey_qn_domain_Question_required" object="${question}" z="gU+5jWAnGgVsIeMCItYj+l2AA2g="/>
+	    <field:display field="comment" id="s_com_kingkey_qn_domain_Question_comment" object="${question}" z="tCqnpuKYY6ybobMqallkReFsHe8="/>
+	    <field:display field="defaultCompletContent" id="s_com_kingkey_qn_domain_Question_defaultCompletContent" object="${question}" z="xHrd+9XlCNJgdo7o/Uvoow65jD0="/>
+    </page:show>
+</div>

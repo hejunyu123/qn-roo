@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_kingkey_qn_domain_QuestionOption" items="${questionoptions}" z="J4FUKtdbuj/t1iyHIoS5UUEjUn4=">
+        <table:table data="${questionoptions}" id="l_com_kingkey_qn_domain_QuestionOption" path="/questionoptions" z="WOXU5468SCqQ+WWjLsy+Yc+mV0I=">
+            <table:column id="c_com_kingkey_qn_domain_QuestionOption_content" property="content" z="BmWWzmIr3z9+pGETLO+r8kM4/JY="/>
+        <table:column id="c_com_kingkey_qn_domain_QuestionOption_orderNo" property="orderNo" z="mBw24Vs26I3M9slQTqcEjVI79zs="/>
+        <table:column id="c_com_kingkey_qn_domain_QuestionOption_needCompletion" property="needCompletion" z="ZCuRDsCNgCfKLrizopXE9tmass8="/>
+        <table:column id="c_com_kingkey_qn_domain_QuestionOption_question" property="question" z="zheqws23aDQcVcRJ5k+vtHOJaxI="/>
+        </table:table>
+    </page:list>
+</div>

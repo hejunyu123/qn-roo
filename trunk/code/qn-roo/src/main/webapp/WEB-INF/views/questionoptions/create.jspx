@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_kingkey_qn_domain_QuestionOption" modelAttribute="questionOption" path="/questionoptions" render="${empty dependencies}" z="0U4izoFPmmP5rCL8g93bQ2kGxng=">
+        <field:input field="content" id="c_com_kingkey_qn_domain_QuestionOption_content" required="true" z="2LqlbbGAcYQaH8l0AhWXZ8bvo2w="/>
+	    <field:input field="orderNo" id="c_com_kingkey_qn_domain_QuestionOption_orderNo" validationMessageCode="field_invalid_integer" z="Ef9d3XXGkTo2e+IfVVwcu7CDKh0="/>
+	    <field:checkbox field="needCompletion" id="c_com_kingkey_qn_domain_QuestionOption_needCompletion" z="AUJxrs+sDfKM5/PWQXN2XxvflWg="/>
+	    
+	    <c:choose>
+	    <c:when test="${empty question }">
+	    	<field:select field="question" id="c_com_kingkey_qn_domain_QuestionOption_question" itemValue="id" items="${questions}" path="/questions" z="4jQL822/4ur6t30ARo89f8TDmng="/>
+	    </c:when>
+	    <c:otherwise>
+	    	<input name="question" type="hidden" value="${question}"/>
+	    </c:otherwise>
+	    </c:choose>
+	    
+	    <input name="redirect" type="hidden" value="${redirect}"/>
+    </form:create>
+    
+    <form:dependency dependencies="${dependencies}" id="d_com_kingkey_qn_domain_QuestionOption" render="${not empty dependencies}" z="T6Sx8x+FTJAU4dsFH+lged6O/U0="/>
+</div>

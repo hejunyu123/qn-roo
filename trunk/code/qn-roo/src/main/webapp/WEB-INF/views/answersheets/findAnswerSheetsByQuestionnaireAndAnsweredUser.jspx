@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:find finderName="ByQuestionnaireAndAnsweredUser" id="ff_com_kingkey_qn_domain_AnswerSheet" path="/answersheets" z="kUOHIbNuV3RyyYINa0hS2ptFLMI=">
+        <field:select disableFormBinding="true" field="questionnaire" id="f_com_kingkey_qn_domain_AnswerSheet_questionnaire" itemValue="id" items="${questionnaires}" path="/questionnaires" z="V3F4MvnMPd2hfT5XMHoRbCVeHA0="/>
+        <field:select disableFormBinding="true" field="answeredUser" id="f_com_kingkey_qn_domain_AnswerSheet_answeredUser" itemValue="id" items="${systemusers}" path="/systemusers" z="16H8JdZQvGg/DrOvIM0MedK0qec="/>
+    </form:find>
+</div>
