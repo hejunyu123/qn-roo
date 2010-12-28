@@ -33,7 +33,7 @@ public class AnswerSheetController {
             HttpServletRequest request) {
 
         return AnswerController.doSaveAnswerSheet(answerSheet, result, model, request,
-                "answersheets", "");
+                "answersheets");
     }
 
     @RequestMapping(params = "statForm", method = RequestMethod.GET)
@@ -44,12 +44,19 @@ public class AnswerSheetController {
     @RequestMapping(params = "stat", method = RequestMethod.GET)
     public String stat(Model model,
             @RequestParam(value = "questionnaire", required = true) Long questionnaire,
-            @RequestParam(value = "department", required = true) Long department) {
+            @RequestParam(value = "department", required = true) Long departmentId) {
 
-        QuestionnaireVo questionnaireVo = QuestionnaireVo.stat(Questionnaire
-                .findQuestionnaire(questionnaire), Department.findDepartment(department));
+        Department department = null;
+        if (departmentId != null && departmentId > 0)
+            department = Department.findDepartment(departmentId);
+
+        QuestionnaireVo questionnaireVo = QuestionnaireVo.stat(
+                Questionnaire.findQuestionnaire(questionnaire), department);
 
         model.addAttribute("questionnaire", questionnaireVo);
+
+        model.addAttribute("selectedQuestionnaire", questionnaire);
+        model.addAttribute("selectedDepartment", departmentId);
 
         return "answersheets/stat";
     }

@@ -41,6 +41,7 @@
     <c:set var="lengths" value="${fn:split(columnMaxLengths, ',')}" scope="request" />
     <c:set var="i18ns" value="${fn:split(columnI18n, ',')}" scope="request" />
     <c:set var="keyPrefixs" value="${fn:split(columnKeyPrefix, ',')}" scope="request" />
+    <c:set var="urls" value="${fn:split(columnUrl, ',')}" scope="request" />
 
     <table>
       <thead>
@@ -65,22 +66,46 @@
             <c:set var="columnMaxLength" value="${lengths[num.count-1]}" scope="request" />
             <c:set var="i18n" value="${i18ns[num.count-1]}" scope="request" />
             <c:set var="keyPrefix" value="${keyPrefixs[num.count-1]}" scope="request" />
+            <c:set var="url" value="${urls[num.count-1]}" scope="request" />
             
+    		<spring:url value="${path}/${item[typeIdFieldName]}" var="show_form_url" />
+    
             <td>
             
               <c:choose>
                 <c:when test="${i18n}">
                 	<spring:eval expression="item[column]" var="colTxt" />
-                	<spring:message code="${keyPrefix}${colTxt}" />
+                	<c:choose>
+                	  <c:when test="${url eq '_'}">
+                	    <spring:message code="${keyPrefix}${colTxt}" />
+                	  </c:when>
+                	  <c:otherwise>
+                	    <a href="${fn:escapeXml(show_form_url)}"><spring:message code="${keyPrefix}${colTxt}" /></a>
+                	  </c:otherwise>
+                	</c:choose>
                 </c:when>
                 <c:otherwise>
 	              <c:choose>
 	                <c:when test="${columnMaxLength lt 0}">
-	                  <spring:eval expression="item[column]" />
+	                	<c:choose>
+	                	  <c:when test="${url eq '_'}">
+	                	    <spring:eval expression="item[column]" />
+	                	  </c:when>
+	                	  <c:otherwise>
+	                	    <a href="${fn:escapeXml(show_form_url)}"><spring:eval expression="item[column]" /></a>
+	                	  </c:otherwise>
+	                	</c:choose>
 	                </c:when>
 	                <c:otherwise>
 	                  <spring:eval expression="item[column]" var="colTxt" />
-	                  <c:out value="${fn:substring(colTxt, 0, columnMaxLength)}" />
+	                	<c:choose>
+	                	  <c:when test="${url eq '_'}">
+	                	    <c:out value="${fn:substring(colTxt, 0, columnMaxLength)}" />
+	                	  </c:when>
+	                	  <c:otherwise>
+	                	    <a href="${fn:escapeXml(show_form_url)}"><c:out value="${fn:substring(colTxt, 0, columnMaxLength)}" /></a>
+	                	  </c:otherwise>
+	                	</c:choose>
 	                </c:otherwise>
 	              </c:choose>
                 </c:otherwise>
@@ -89,7 +114,6 @@
             </td>
           </c:forTokens>
           <td>
-            <spring:url value="${path}/${item[typeIdFieldName]}" var="show_form_url" />
             <spring:url value="/resources/images/show.png" var="show_image_url" />
             <spring:message arguments="${typeName}" code="entity_show" var="show_label" />
             <a href="${fn:escapeXml(show_form_url)}" alt="${fn:escapeXml(show_label)}" title="${fn:escapeXml(show_label)}">

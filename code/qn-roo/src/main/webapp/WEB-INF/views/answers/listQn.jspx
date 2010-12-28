@@ -3,8 +3,8 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_com_kingkey_qn_domain_Questionnaire" items="${questionnaires}" z="4R0LP9zl0fPtfxwa/oLrocF80sw=">
         <table:table data="${questionnaires}" create="false" delete="false" update="false" id="l_com_kingkey_qn_domain_Questionnaire" path="/answers" z="JEFdcHwApMl/FBOzocSlAJJqCjQ=">
-            <table:column id="c_com_kingkey_qn_domain_Questionnaire_subject" property="subject" z="vbuXaBC0b7TxCE+BTgeP1FWc5yc="/>
-	        <table:column id="c_com_kingkey_qn_domain_Questionnaire_description" property="description" z="69P/402f/aZPCs9SF38y9vYbOwI="/>
+            <table:column id="c_com_kingkey_qn_domain_Questionnaire_subject" url="show" property="subject" z="vbuXaBC0b7TxCE+BTgeP1FWc5yc="/>
+	        <table:column id="c_com_kingkey_qn_domain_Questionnaire_description" property="description" render="false" z="69P/402f/aZPCs9SF38y9vYbOwI="/>
 	        <table:column id="c_com_kingkey_qn_domain_Questionnaire_displayPartLabel" property="displayPartLabel" render="false" z="q3EF+b4ee0IuT1xPqax/ORHoL2Y="/>
 	        <table:column id="c_com_kingkey_qn_domain_Questionnaire_department" property="department" z="n5kMc7+QPpp472cQ+EXBgYIpNo0="/>
 	        <table:column id="c_com_kingkey_qn_domain_Questionnaire_createdBy" property="createdBy" z="g35D4gYogJt8g/8QA7a3iyfs4P0="/>

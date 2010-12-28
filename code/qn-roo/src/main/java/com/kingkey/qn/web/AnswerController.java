@@ -70,7 +70,7 @@ public class AnswerController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String createForm(@PathVariable("id") Long id, Model model) {
+    public String createForm(@PathVariable("id") Long id, Model model, HttpSession session) {
 
         Questionnaire questionnaire = Questionnaire.findQuestionnaire(id);
 
@@ -87,6 +87,15 @@ public class AnswerController {
             if (questionnaire.getQuestionnaireType() == QuestionnaireType.RealNameAnswer) {
                 throw new AccessDeniedException(
                         "You are not login, you cannot answer this questionnaire");
+            }
+
+            Long lastAnsweredId = (Long) session.getAttribute("lastAnsweredId");
+            if (lastAnsweredId != null) {
+                AnswerSheet answerSheet = AnswerSheet.findAnswerSheet(lastAnsweredId);
+                if (answerSheet.getQuestionnaire().getId().equals(id)) {
+                    log.info("Anonymous User had answered this questionnaire");
+                    return "redirect:/answers/" + lastAnsweredId + "?updateForm";
+                }
             }
 
         }
@@ -174,18 +183,20 @@ public class AnswerController {
         log.info("set lastAnsweredId: " + answerSheet.getId() + " to session");
         session.setAttribute("lastAnsweredId", answerSheet.getId());
 
-        return "redirect:/answers/" + answerSheet.getId() + "?updateForm";
+        model.addAttribute("redirect", "/answers/");
+
+        return "answers/redirect";
     }
 
     @RequestMapping(method = RequestMethod.PUT)
     public String update(@Valid AnswerSheet answerSheet, BindingResult result, Model model,
             HttpServletRequest request) {
 
-        return doSaveAnswerSheet(answerSheet, result, model, request, "answers", "?updateForm");
+        return doSaveAnswerSheet(answerSheet, result, model, request, "answers");
     }
 
     public static String doSaveAnswerSheet(AnswerSheet answerSheet, BindingResult result,
-            Model model, HttpServletRequest request, String namespace, String params) {
+            Model model, HttpServletRequest request, String namespace) {
         if (result.hasErrors()) {
             List<ObjectError> errors = result.getAllErrors();
             for (ObjectError objectError : errors) {
@@ -212,7 +223,9 @@ public class AnswerController {
 
         saveAnswer(answerSheet, result, request);
 
-        return "redirect:/" + namespace + "/" + answerSheet.getId() + params;
+        model.addAttribute("redirect", "/" + namespace + "/");
+
+        return "answers/redirect";
     }
 
     private static void saveAnswer(AnswerSheet answerSheet, BindingResult result,
