@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.TypedQuery;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
@@ -30,20 +31,27 @@ public class Answer {
 
     public static List<Answer> findAllByAnswerSheet(AnswerSheet answerSheet) {
 
-        List<Answer> list = entityManager().createQuery(
-                "select o from Answer o where o.answerSheet = :answerSheet", Answer.class)
-                .setParameter("answerSheet", answerSheet).getResultList();
+        List<Answer> list = entityManager()
+                .createQuery("select o from Answer o where o.answerSheet = :answerSheet",
+                        Answer.class).setParameter("answerSheet", answerSheet).getResultList();
         return list;
     }
 
     public static Long countByDepartmentAndQuestionOption(Department department,
             QuestionOption questionOption) {
 
-        Long count = entityManager().createQuery(
-                "select count(o) from Answer o where o.questionOption = :questionOption "
-                        + "and o.answerSheet.department = :department", Long.class).setParameter(
-                "questionOption", questionOption).setParameter("department", department)
-                .getSingleResult();
+        String hql = "select count(o) from Answer o where o.questionOption = :questionOption";
+        if (department != null)
+            hql += " and o.answerSheet.department = :department";
+
+        TypedQuery<Long> query = entityManager().createQuery(hql, Long.class);
+        query.setParameter("questionOption", questionOption);
+
+        if (department != null)
+            query.setParameter("department", department);
+
+        Long count = query.getSingleResult();
+
         return count;
     }
 }

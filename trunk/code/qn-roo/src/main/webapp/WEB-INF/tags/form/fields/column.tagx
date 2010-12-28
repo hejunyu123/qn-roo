@@ -10,6 +10,7 @@
 
   <jsp:directive.attribute name="i18n" type="java.lang.Boolean" required="false" description="Indicate if the contents should be i18n (default 'false')." />
   <jsp:directive.attribute name="keyPrefix" type="java.lang.String" required="false" description="The prefix key of i18n." />
+  <jsp:directive.attribute name="url" type="java.lang.String" required="false" description="The url of this column." />
 
 
     <c:if test="${empty i18n}">
@@ -17,6 +18,9 @@
     </c:if>
     <c:if test="${empty keyPrefix}">
       <c:set var="keyPrefix" value="_" />
+    </c:if>
+    <c:if test="${empty url}">
+      <c:set var="url" value="_" />
     </c:if>
     
   <c:if test="${empty render or render}">
@@ -30,6 +34,7 @@
         <c:set var="columnMaxLengths" value="${empty maxLength ? 20 : maxLength}" scope="request" />
         <c:set var="columnI18n" value="${i18n}" scope="request" />
         <c:set var="columnKeyPrefix" value="${keyPrefix}" scope="request" />
+        <c:set var="columnUrl" value="${url}" scope="request" />
       </c:when>
       <c:otherwise>
         <c:set var="columnProperties" value="${columnProperties},${property}" scope="request" />
@@ -37,6 +42,7 @@
         <c:set var="columnMaxLengths" value="${columnMaxLengths},${empty maxLength ? 20 : maxLength}" scope="request" />
         <c:set var="columnI18n" value="${columnI18n},${i18n}" scope="request" />
         <c:set var="columnKeyPrefix" value="${columnKeyPrefix},${keyPrefix}" scope="request" />
+        <c:set var="columnUrl" value="${columnUrl},${url}" scope="request" />
       </c:otherwise>
     </c:choose>
   </c:if>

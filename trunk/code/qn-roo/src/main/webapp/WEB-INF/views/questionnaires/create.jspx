@@ -6,7 +6,7 @@
 	    <field:input field="description" id="c_com_kingkey_qn_domain_Questionnaire_description" z="z8IcctBNHULBS2jGlderOpR86sU="/>
 	    <field:checkbox field="displayPartLabel" id="c_com_kingkey_qn_domain_Questionnaire_displayPartLabel" z="1+RVpy5XkXd+Xf1nvec5aMVGfqA="/>
 	    <field:simple field="parts" id="c_com_kingkey_qn_domain_Questionnaire_parts" messageCode="entity_reference_not_managed" messageCodeAttribute="Part" render="false" z="user-managed"/>
-	    <field:select field="department" id="c_com_kingkey_qn_domain_Questionnaire_department" itemValue="id" items="${departments}" path="/departments" z="J2tkZh47Ws69zFKZPAXtFf57A8g="/>
+	    <field:select disableFormBinding="true" field="department" id="c_com_kingkey_qn_domain_Questionnaire_department" itemValue="id" items="${departments}" path="/departments" z="user-managed"/>
 	    <field:select field="createdBy" id="c_com_kingkey_qn_domain_Questionnaire_createdBy" itemValue="id" items="${systemusers}" path="/systemusers" render="false" z="user-managed"/>
 	    <field:datetime dateTimePattern="${questionnaire_createddate_date_format}" field="createdDate" id="c_com_kingkey_qn_domain_Questionnaire_createdDate" render="false" z="user-managed"/>
     	<field:select field="questionnaireType" id="c_com_kingkey_qn_domain_Questionnaire_questionnaireType" itemValue="value" items="${questionnairetypes}" path="questionnairetypes" required="true" z="user-managed"/>

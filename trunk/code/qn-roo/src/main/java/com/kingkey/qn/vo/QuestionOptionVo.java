@@ -35,7 +35,7 @@ public class QuestionOptionVo implements Serializable {
     
     private double checkedPercent;
     
-    private String checkedPercentStr;
+    private String checkedPercentStr = "0%";
 
     public static QuestionOptionVo convert(QuestionVo questionVo, QuestionOption questionOption,
             AnswerSheet answerSheet) {
